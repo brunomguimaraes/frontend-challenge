@@ -1,5 +1,6 @@
 import { NotFound } from "components/NotFound";
 import { SearchResults } from "components/SearchResults";
+
 import { useHomesContext } from "context/homes";
 
 import * as Styled from "./styles";

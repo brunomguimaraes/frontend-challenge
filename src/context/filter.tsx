@@ -1,12 +1,3 @@
-import { useQuery } from "@apollo/client";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import {
-  initialDates,
-  initialFilterState,
-  initialRegion,
-} from "constants/initial-states";
-import { GUEST_OPTIONS, ORDER_BY_OPTIONS } from "constants/options";
-import { GET_ALL_REGIONS } from "graphql/queries";
 import {
   createContext,
   PropsWithChildren,
@@ -14,6 +5,18 @@ import {
   useEffect,
   useState,
 } from "react";
+import { useQuery } from "@apollo/client";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+
+import {
+  initialDates,
+  initialFilterState,
+  initialRegion,
+} from "constants/initial-states";
+import { GUEST_OPTIONS, ORDER_BY_OPTIONS } from "constants/options";
+
+import { GET_ALL_REGIONS } from "graphql/queries";
+
 import { DateSelection, FilterSelection, Region } from "./types";
 
 interface Filter {

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Card } from "components/Card";
 import { Skeleton } from "components/Skeleton";
-
 import useElementOnScreen from "hooks/useElementOnScreen";
+
 import { useHomesContext } from "context/homes";
 import { Home } from "context/types";
 
