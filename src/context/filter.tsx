@@ -4,9 +4,9 @@ import {
   initialDates,
   initialFilterState,
   initialRegion,
-} from "../constants/initial-states";
-import { GUEST_OPTIONS, ORDER_BY_OPTIONS } from "../constants/options";
-import { GET_ALL_REGIONS } from "../graphql/queries";
+} from "constants/initial-states";
+import { GUEST_OPTIONS, ORDER_BY_OPTIONS } from "constants/options";
+import { GET_ALL_REGIONS } from "graphql/queries";
 import {
   createContext,
   PropsWithChildren,

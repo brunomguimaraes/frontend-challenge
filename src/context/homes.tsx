@@ -2,8 +2,8 @@ import { createContext, PropsWithChildren, useContext } from "react";
 import { useQuery } from "@apollo/client";
 
 import { useFilterContext } from "./filter";
-import { GET_HOMES } from "../graphql/queries";
-import { Home } from "./types";
+import { GET_HOMES } from "graphql/queries";
+import { Home } from "context/types";
 import React from "react";
 
 interface Homes {
