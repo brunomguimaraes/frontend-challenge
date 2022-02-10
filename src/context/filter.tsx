@@ -32,6 +32,7 @@ interface Filter {
   setOrderBy: (selectedOrderBy: FilterSelection) => void;
   coupon: string;
   setCoupon: (selectedOrderBy: string) => void;
+  resetFilter: () => void;
 }
 
 const FilterContext = createContext<Filter>({
@@ -47,12 +48,29 @@ const FilterContext = createContext<Filter>({
   setOrderBy: () => {},
   coupon: "",
   setCoupon: () => {},
+  resetFilter: () => {},
 });
 
 export function FilterProvider(props: PropsWithChildren<{}>) {
   const [searchParams, setSearchParams] = useSearchParams();
   let navigate = useNavigate();
   const { pathname } = useLocation();
+
+  const resetFilter = () => {
+    setSelectedRegion(() => initialRegion);
+    setGuests(() => ({ value: 0, name: "" }));
+    setOrderBy(() => ORDER_BY_OPTIONS[0]);
+    setPeriod(() => ({
+      startDate: "",
+      endDate: "",
+    }));
+    setCoupon(() => "");
+
+    navigate({
+      pathname: '/homes',
+      search: ''
+    })
+  }
 
   /**
    * REGIONS
@@ -242,6 +260,7 @@ export function FilterProvider(props: PropsWithChildren<{}>) {
         setOrderBy: handleOrderByChange,
         coupon,
         setCoupon: handleCouponChange,
+        resetFilter
       }}
     >
       {props.children}
