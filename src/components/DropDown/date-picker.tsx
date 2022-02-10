@@ -10,7 +10,7 @@ import * as Styled from "./styles";
 
 export interface DatePickerProps {
   label: string;
-  range?: DateSelection;
+  range: DateSelection;
   onChange: (selectedDate: DateSelection) => void;
 }
 
@@ -56,8 +56,8 @@ export const DatePicker = ({ range, onChange, label }: DatePickerProps) => {
         show={isOpen}
         onChange={(range: DateSelection) => onOptionClicked(range)}
         onClickOut={() => setIsOpen(false)}
-        startDate={range?.startDate}
-        endDate={range?.endDate}
+        startDate={range.startDate}
+        endDate={range.endDate}
       />
     </Styled.DropDownWrapper>
   );
