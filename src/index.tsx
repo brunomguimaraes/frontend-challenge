@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import { ApolloProvider } from "@apollo/client";
 import { ApolloClient, InMemoryCache } from "@apollo/client/core";
 import { BrowserRouter } from "react-router-dom";
-import App from "pages/App";
+import App from "pages/App/App";
 
 import { FilterProvider } from "context/filter";
 import { HomesProvider } from "context/homes";
 
-import "index.css";
+import "./index.css";
 
 const apolloClient = new ApolloClient({
   uri: process.env.REACT_APP_API_URL,
