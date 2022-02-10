@@ -1,11 +1,11 @@
-// import { useFilterContext } from "context/filter";
+import { useFilterContext } from "context/filter";
 
 import * as Styled from "./styles";
 
 interface TopbarProps { }
 
 export const Topbar = (props: TopbarProps) => {
-  // const { coupon, setCoupon } = useFilterContext();
+  const { coupon, setCoupon } = useFilterContext();
 
   return (
     <Styled.Desktop.Wrapper>
