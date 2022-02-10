@@ -57,17 +57,15 @@ export function FilterProvider(props: PropsWithChildren<{}>) {
   const { pathname } = useLocation();
 
   const resetFilter = () => {
-    setSelectedRegion(() => initialRegion);
-    setGuests(() => ({ value: 0, name: "" }));
-    setOrderBy(() => ORDER_BY_OPTIONS[0]);
-    setPeriod(() => ({
+    handleGuestChange({ value: 0, name: "" });
+    handleOrderByChange(ORDER_BY_OPTIONS[0]);
+    handlePeriodChange({
       startDate: "",
       endDate: "",
-    }));
-    setCoupon(() => "");
+    });
+    handleCouponChange("");
 
     navigate({
-      pathname: '/homes',
       search: ''
     })
   }
