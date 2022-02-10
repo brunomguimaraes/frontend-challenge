@@ -34,7 +34,3 @@ export const Desktop = {
   Header: DesktopHeader,
   Filters: DesktopFilters,
 };
-
-// const TabletWrapper = styled.div`
-//   padding: 0 3.9%;
-// `;
