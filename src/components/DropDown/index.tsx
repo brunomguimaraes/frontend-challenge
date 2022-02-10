@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { DropDownHeader } from "components/DropDown/header";
+import { DropDownHeader } from "./header";
 import useOnClickOutside from "hooks/useOnClickOutside";
 
 import { FilterSelection } from "context/types";

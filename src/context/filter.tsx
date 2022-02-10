@@ -6,7 +6,7 @@ import {
   initialRegion,
 } from "constants/initial-states";
 import { GUEST_OPTIONS, ORDER_BY_OPTIONS } from "constants/options";
-import { GET_ALL_REGIONS } from "graphql/queries";
+import { GET_ALL_REGIONS } from "graphql/queries/queries";
 import {
   createContext,
   PropsWithChildren,

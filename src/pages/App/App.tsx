@@ -1,12 +1,11 @@
+import { Content } from "components/Content";
 import { Topbar } from "components/Topbar";
 
 function App() {
   return (
     <main className="App">
       <Topbar />
-      <span>
-        Content
-      </span>
+      <Content />
     </main>
   );
 }
