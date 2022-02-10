@@ -2,6 +2,9 @@
 
 Since this is a test I took the liberty of uploading the `.env` file to this repo, just for the sake of relieving whoever is reviewing of the "creating an .env file with the api's url 
 
+### Comments
+Also, since this is a test, I took the liberty of adding a few comments throughout the coode that I considered revelant.
+
 # AvantStay FrontEnd Implementation Test
 
 The goal of this test is to check how you'd handle day-to-day tasks at AvantStay. 
