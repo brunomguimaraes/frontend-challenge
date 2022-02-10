@@ -1,3 +1,5 @@
+import { TextInput } from "components/TextInput";
+
 import { useFilterContext } from "context/filter";
 
 import * as Styled from "./styles";
@@ -20,7 +22,12 @@ export const Topbar = (props: TopbarProps) => {
 
       <Styled.Desktop.Filters>
         <span>Filter</span>
-        <input />
+        <TextInput
+          value={coupon}
+          placeholder={"Got a code?"}
+          label={"Coupon"}
+          onChange={setCoupon}
+        />
       </Styled.Desktop.Filters>
     </Styled.Desktop.Wrapper>
   );
