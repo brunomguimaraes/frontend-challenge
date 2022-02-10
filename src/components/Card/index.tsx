@@ -3,7 +3,7 @@ import { Icon } from "components/Icon";
 import { Skeleton } from "components/Skeleton";
 import { useFilterContext } from "context/filter";
 import { Home, HomePrice, SeasonPricing } from "context/types";
-import { GET_HOME_PRICING } from "graphql/queries/queries";
+import { GET_HOME_PRICING } from "graphql/queries";
 import { formatCurrency } from "utils/formatting";
 
 import * as Styled from "./styles";
