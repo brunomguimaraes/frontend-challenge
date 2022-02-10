@@ -17,3 +17,12 @@ code {
   src: local("SangBleu Sunrise"),
     url(./fonts/SangBleu\ Sunrise.woff) format("woff");
 }
+
+/* since it's not possible to add style tags to avantstay-ui datepicker
+I've used the native className from the component and added the position: fixed
+prop so it would stay in place
+https://github.com/avantstay/avantstay-ui
+*/
+.rdr-DateRange {
+  position: fixed;
+}
