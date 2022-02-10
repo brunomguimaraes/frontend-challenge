@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 
 import { useFilterContext } from "./filter";
 import { GET_HOMES } from "graphql/queries";
-import { Home } from "context/types";
+import { Home } from "./types";
 import React from "react";
 
 interface Homes {

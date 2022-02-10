@@ -1,10 +1,14 @@
+import { Logo } from "components/Logo";
 import { TextInput } from "components/TextInput";
+import { Button } from "components/Button";
+import { Navigation } from "components/Navigation";
+import { Filter } from "components/Filter";
 
 import { useFilterContext } from "context/filter";
 
 import * as Styled from "./styles";
 
-interface TopbarProps { }
+interface TopbarProps {}
 
 export const Topbar = (props: TopbarProps) => {
   const { coupon, setCoupon } = useFilterContext();
@@ -12,16 +16,16 @@ export const Topbar = (props: TopbarProps) => {
   return (
     <Styled.Desktop.Wrapper>
       <Styled.Desktop.Header>
-        <span>Logo</span>
-        <span>Nav</span>
+        <Logo />
+        <Navigation />
         <div>
-          <button>Sign In</button>
-          <button>Sign Up</button>
+          <Button borderless>Sign In</Button>
+          <Button>Sign Up</Button>
         </div>
       </Styled.Desktop.Header>
 
       <Styled.Desktop.Filters>
-        <span>Filter</span>
+        <Filter />
         <TextInput
           value={coupon}
           placeholder={"Got a code?"}
