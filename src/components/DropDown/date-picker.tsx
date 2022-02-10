@@ -11,10 +11,10 @@ import * as Styled from "./styles";
 export interface DatePickerProps {
   label: string;
   range: DateSelection;
-  onChange: (selectedDate: DateSelection) => void;
+  setRange: (selectedDate: DateSelection) => void;
 }
 
-export const DatePicker = ({ range, onChange, label }: DatePickerProps) => {
+export const DatePicker = ({ range, setRange, label }: DatePickerProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(() => false);
 
   const toggling = () => setIsOpen(!isOpen);
@@ -22,7 +22,7 @@ export const DatePicker = ({ range, onChange, label }: DatePickerProps) => {
   const onOptionClicked = (range: DateSelection) => {
     const { startDate = "", endDate = "" } = range;
 
-    onChange({
+    setRange({
       startDate,
       endDate,
     });

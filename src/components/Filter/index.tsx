@@ -29,7 +29,7 @@ export const Filter = (props: FilterProps) => {
         value={selectedRegion}
         onChange={setSelectedRegion}
       />
-      <DatePicker label={"When"} range={period} onChange={setPeriod} />
+      <DatePicker label={"When"} range={period} setRange={setPeriod} />
       <DropDown
         label={"Who"}
         options={GUEST_OPTIONS}
