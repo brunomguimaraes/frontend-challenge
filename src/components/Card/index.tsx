@@ -139,15 +139,18 @@ export const Card = ({ home }: CardProps) => {
     seasonPricing,
   } = home;
   const { period, coupon } = useFilterContext();
-  const hasPeriodSelected = !!period.startDate || !!period.endDate;
+  const hasPeriodSelected = !!period.startDate && !!period.endDate;
 
-  const { loading, data } = useQuery<HomePrice>(GET_HOME_PRICING, {
+  const { loading, error, data } = useQuery<HomePrice>(GET_HOME_PRICING, {
     variables: {
       id,
       period: { checkIn: period.startDate, checkOut: period.endDate },
       coupon,
     },
+    skip: !hasPeriodSelected
   });
+
+  if(error) return <span>Oops, an error has occurred!</span>
 
   return (
     <Styled.CardSplit>

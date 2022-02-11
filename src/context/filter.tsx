@@ -33,6 +33,7 @@ interface Filter {
   coupon: string;
   setCoupon: (selectedOrderBy: string) => void;
   resetFilter: () => void;
+  error: any;
 }
 
 const FilterContext = createContext<Filter>({
@@ -49,6 +50,7 @@ const FilterContext = createContext<Filter>({
   coupon: "",
   setCoupon: () => {},
   resetFilter: () => {},
+  error: () => null,
 });
 
 export function FilterProvider(props: PropsWithChildren<{}>) {
@@ -82,13 +84,11 @@ export function FilterProvider(props: PropsWithChildren<{}>) {
     initialRegion,
   ]);
 
-  const regionsDataFromApi = useQuery(GET_ALL_REGIONS);
+  const {data: regionsDataFromApi, error} = useQuery(GET_ALL_REGIONS);
 
   useEffect(() => {
-    const { data } = regionsDataFromApi;
-
-    if (data) {
-      const { regions: regionsData } = data;
+    if (regionsDataFromApi) {
+      const { regions: regionsData } = regionsDataFromApi;
 
       const sanitizedRegions = regionsData.map((region: Region) => {
         const { id: value, name, stateName: appendName } = region;
@@ -258,7 +258,8 @@ export function FilterProvider(props: PropsWithChildren<{}>) {
         setOrderBy: handleOrderByChange,
         coupon,
         setCoupon: handleCouponChange,
-        resetFilter
+        resetFilter,
+        error
       }}
     >
       {props.children}
