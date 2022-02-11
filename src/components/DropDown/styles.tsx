@@ -39,6 +39,8 @@ export const DropDownContainer = styled("div")``;
 
 export const DropDownList = styled("ul")`
   position: absolute;
+  max-height: 400px;
+  overflow: scroll;
   padding: 16px;
   background: white;
   border: 1px solid #e9eef1;
