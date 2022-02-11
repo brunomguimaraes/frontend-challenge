@@ -1,4 +1,4 @@
-import React, { createContext, PropsWithChildren, useContext } from "react";
+import { useCallback, createContext, PropsWithChildren, useContext } from "react";
 import { useQuery } from "@apollo/client";
 
 import { useFilterContext } from "./filter";
@@ -38,7 +38,7 @@ export function HomesProvider(props: PropsWithChildren<{}>) {
       page: 1,
       period: {
         checkIn: period.startDate,
-        checkOut: period.endDate ? period.endDate : period.startDate,
+        checkOut: period.endDate,
       },
       guests: guests.value,
     },
@@ -69,7 +69,7 @@ export function HomesProvider(props: PropsWithChildren<{}>) {
         count: homesDataFromApi?.data?.homes.count,
         loading: homesDataFromApi?.loading,
         error: homesDataFromApi?.error,
-        loadMore: React.useCallback(loadMore, [homesDataFromApi]),
+        loadMore: useCallback(loadMore, [homesDataFromApi]),
       }}
     >
       {props.children}
