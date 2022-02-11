@@ -20,12 +20,22 @@ export const DatePicker = ({ range, setRange, label }: DatePickerProps) => {
   const toggling = () => setIsOpen(!isOpen);
 
   const onOptionClicked = (range: DateSelection) => {
-    const { startDate = "", endDate = "" } = range;
-
-    setRange({
-      startDate,
-      endDate,
-    });
+    const {startDate: start, endDate: end} = range
+  
+    if (start && end) {
+      const startDate = moment(start).startOf('day').toISOString();
+      const endDate = moment(end).endOf('day').toISOString();
+  
+      setRange({
+        startDate,
+        endDate
+      });
+    } else if (!start && !end) {
+      setRange({
+        startDate: "",
+        endDate: ""
+      });
+    }
   };
 
   const formatDateLabel = (range: DateSelection) => {
