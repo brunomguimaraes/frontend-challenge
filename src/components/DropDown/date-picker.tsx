@@ -63,6 +63,7 @@ export const DatePicker = ({ range, setRange, label }: DatePickerProps) => {
         selected={range ? formatDateLabel(range) : { name: "Select..." }}
       />
       <DateRangePicker
+        singleDateRange={false}
         show={isOpen}
         onChange={(range: DateSelection) => onOptionClicked(range)}
         onClickOut={() => setIsOpen(false)}
