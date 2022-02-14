@@ -16,31 +16,19 @@ export interface DatePickerProps {
 
 export const DatePicker = ({ range, setRange, label }: DatePickerProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(() => false);
+  const { startDate, endDate } = range;
 
   const toggling = () => setIsOpen(!isOpen);
 
-  const onOptionClicked = (range: DateSelection) => {
-    const {startDate: start, endDate: end} = range
-  
-    if (start && end) {
-      const startDate = moment(start).startOf('day').toISOString();
-      const endDate = moment(end).endOf('day').toISOString();
-  
-      setRange({
-        startDate,
-        endDate
-      });
-    } else if (!start && !end) {
-      setRange({
-        startDate: "",
-        endDate: ""
-      });
-    }
+  const onOptionClicked = (selectedRange: DateSelection) => {
+    setRange({
+      startDate: selectedRange?.startDate ? moment(selectedRange.startDate).startOf('day').toISOString() : '',
+      endDate: selectedRange?.endDate ? moment(selectedRange.endDate).endOf('day').toISOString() : ''
+    });
   };
 
-  const formatDateLabel = (range: DateSelection) => {
+  const formatDateLabel = () => {
     let dateLabel = "";
-    const { startDate, endDate } = range;
     if (!!startDate && !!endDate) {
       dateLabel = `${moment(startDate).format("ll")} - ${moment(endDate).format(
         "ll"
@@ -60,15 +48,15 @@ export const DatePicker = ({ range, setRange, label }: DatePickerProps) => {
         isOpen={isOpen}
         onClick={toggling}
         label={label}
-        selected={range ? formatDateLabel(range) : { name: "Select..." }}
+        selected={range ? formatDateLabel() : { name: "Select..." }}
       />
       <DateRangePicker
         singleDateRange={false}
         show={isOpen}
-        onChange={(range: DateSelection) => onOptionClicked(range)}
+        onChange={(selectedRange: DateSelection) => onOptionClicked(selectedRange)}
         onClickOut={() => setIsOpen(false)}
-        startDate={range.startDate}
-        endDate={range.endDate}
+        startDate={startDate}
+        endDate={endDate}
       />
     </Styled.DropDownWrapper>
   );
