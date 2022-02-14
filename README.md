@@ -19,10 +19,11 @@ run:
 and access http://localhost:3000/ 
 
 ### Comments
-Also, since this is a test, I took the liberty of adding a few comments throughout the coode that I considered revelant.
+ - Also, since this is a test, I took the liberty of adding a few comments throughout the coode that I considered revelant.
 
+ - I know there is an unexpected behavior on the calendar. I've tried to use an [open source calendar code from AvantStay](https://github.com/avantstay/avantstay-ui/tree/master/src/DateRangePicker) that I've found on the web that I didn't know if it was deprecated or not.
 
-
+Nevertheless I've [created an issue](https://github.com/avantstay/avantstay-ui/issues/53) on the repo asking for some help on fixing that. I hope that's okay.
 
 
 # AvantStay FrontEnd Implementation Test
